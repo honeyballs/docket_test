@@ -10,6 +10,6 @@ RUN npm install
 # Copy only the compiled file(s) to the image
 COPY index.js .
 
-EXPOSE 3000
+EXPOSE 3001
 
 CMD [ "npm", "run", "start" ]

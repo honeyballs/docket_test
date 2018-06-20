@@ -16,7 +16,7 @@
     <h1 id="hostname"></h1>
     <script>
         $(document).ready(function () {
-            var socket = io("http://server:3001");
+            var socket = io("http://localhost:3001");
             socket.on("hostname", response => {
                 console.log({response});
                 $("#hostname").html(response.hostname);

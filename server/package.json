@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "set HOSTNAME=container&& node ./server/index.js"
+    "start": "node index.js",
+    "test": "set HOSTNAME=container&& node ./index.js"
   },
   "author": "",
   "license": "ISC",

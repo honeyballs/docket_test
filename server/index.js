@@ -11,7 +11,6 @@ server.listen(port, () => {
   console.log('Server listening at port %d', port);
 });
 
-app.use(express.static(path.join(__dirname, '../client')));
 
 io.on( 'connection', socket => {
 

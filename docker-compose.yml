@@ -1,39 +1,21 @@
 version: '3'
 
 services:
-  rest:
-    image: <IMAGE NAME>
+  client:
+    build: ./client
     ports:
-      - 4001:4001
-    networks: 
+      - 3000:3000
+    networks:
       - web_network
     depends_on:
-      - neo4j_db
-      - db_server
-  db_server:
-    image: <IMAGE NAME>
+      - server
+  server:
+    build: ./server
     ports:
-      - 4000:4000
-    networks: 
+      - 3001:3001
+    networks:
       - web_network
-      - db_network
-    depends_on:
-      - neo4j_db
-  neo4j_db:
-    image: neo4j:latest
-    ports:
-      - 7474:7474
-      - 7687:7687
-    networks: 
-      - db_network
-    volumes:
-      - <ABSOLUTE/PATH/TO>/neo4j/data:/data
-      - <ABSOLUTE/PATH/TO>/neo4j/logs:/logs
-    environment:
-      - NEO4J_AUTH=neo4j/password
-
+      
 networks:
   web_network:
-    driver: bridge
-  db_network:
     driver: bridge

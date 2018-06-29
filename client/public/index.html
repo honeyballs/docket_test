@@ -9,20 +9,13 @@
 
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="/index.js"></script>
 
 </head>
 
 <body>
     <h1 id="hostname"></h1>
-    <script>
-        $(document).ready(function () {
-            var socket = io("http://localhost:3001");
-            socket.on("hostname", response => {
-                console.log({response});
-                $("#hostname").html(response.hostname);
-            });
-        })
-    </script>
+    <button id="button"></button>
 </body>
 
 </html>

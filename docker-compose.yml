@@ -13,6 +13,9 @@ services:
     build: ./server
     ports:
       - 3001:3001
+    deploy:
+      replicas: 3
+      restart_policy: on-failure
     networks:
       - web_network
       

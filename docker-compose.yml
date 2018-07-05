@@ -2,23 +2,23 @@ version: '3'
 
 services:
   client:
-    build: ./client
+    image: mathiasw91/docket-client:latest
     ports:
       - 3000:3000
     networks:
-      - web_network
+      - overlay
     depends_on:
       - server
   server:
-    build: ./server
+    image: mathiasw91/docket-server:latest
     ports:
       - 3001:3001
     deploy:
       replicas: 3
-      restart_policy: on-failure
+      restart_policy:
+        condition: on-failure
     networks:
-      - web_network
-      
+      - overlay
+
 networks:
-  web_network:
-    driver: bridge
+  overlay:

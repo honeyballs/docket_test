@@ -3,7 +3,7 @@
 var socket;
 
 $(document).ready(function () {
-    socket = io("http://192.168.99.100:3001");
+    socket = io("http://192.168.99.101:3001", { reconnect: true, transports: ['websocket', 'polling'] });
     socket.on("hostname", response => {
         console.log({response});
         $("#hostname").html(response.hostname);

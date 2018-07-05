@@ -12,6 +12,8 @@ server.listen(port, () => {
 });
 
 
+io.set('transports', ['websocket', 'polling']);
+
 io.on( 'connection', socket => {
 
     console.log("connected");

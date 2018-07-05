@@ -2,7 +2,7 @@ version: '3'
 
 services:
   client:
-    image: mathiasw91/docket-client:latest
+    build: ./client
     ports:
       - 3000:3000
     networks:
@@ -10,7 +10,7 @@ services:
     depends_on:
       - server
   server:
-    image: mathiasw91/docket-server:latest
+    build: ./server
     ports:
       - 3001:3001
     deploy:

@@ -17,4 +17,8 @@ io.on( 'connection', socket => {
     console.log("connected");
     io.emit( "hostname" , {hostname: hostname});
 
+    socket.on('gethostname', data=>{
+      console.log("socket request received "+data.msg)
+      socket.emit( "hostname" , {hostname: hostname});
+    })
 });
